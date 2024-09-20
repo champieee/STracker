@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STracker - Home</title>
+  <title>STracker - Login or Register</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,25 +13,42 @@
   <!-- Header Section -->
   <div class="header">
     <div class="logo">STracker</div>
-    <nav class="nav">
-      <a href="home.html">Home</a>
-      <a href="index.html">Workout</a>
-      <a href="chart.html">Chart</a>
-    </nav>
   </div>
 
-  <!-- Home Section -->
-  <div class="home-section">
-    <h1>Welcome to STracker</h1>
-    <p>Log your lifts, track your progress, and reach your fitness goals. Our system helps you track different exercises across various body parts, giving you a visual breakdown of your progress over time.</p>
-    <button onclick="location.href='index.html';">Start Tracking Workouts</button>
+  <!-- Login Section -->
+  <div id="login-section" class="home-section">
+    <h1>Login to Your Account</h1>
+    <form id="loginForm">
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" required>
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" required>
+      <button type="submit">Login</button>
+      <div id="loginMessage"></div>
+    </form>
+    <p>Don't have an account? <a href="#" id="showRegisterForm">Register here</a></p>
+  </div>
+
+  <!-- Register Section (hidden initially) -->
+  <div id="register-section" class="home-section hidden">
+    <h1>Create a New Account</h1>
+    <form id="registerForm">
+      <label for="registerUsername">Username:</label>
+      <input type="text" id="registerUsername" required>
+      <label for="registerPassword">Password:</label>
+      <input type="password" id="registerPassword" required>
+      <button type="submit">Register</button>
+      <div id="registerMessage"></div>
+    </form>
+    <p>Already have an account? <a href="#" id="showLoginForm">Login here</a></p>
   </div>
 
   <!-- Footer Section -->
   <div class="footer">
-    &copy; 2024 STracker.
+    &copy; 2024 STracker. All rights reserved.
   </div>
 </div>
 
+<script src="app.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>

@@ -1,19 +1,24 @@
-const mysql = require('mysql2');
+const sql = require('mssql');
 
-// Create a MySQL connection
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',      
-    password: 'Hone9!!!',
-    database: 'sTrackerDB'
-});
 
-connection.connect((err) => {
-    if (err) {
-        console.error('Error connecting to MySQL:', err);
-        return;
+const config = {
+    user: 'str',      
+    password: 'Hone9!!!',         
+    server: 'stracker-server.database.windows.net', 
+    database: 'sTrackerDB',            
+    options: {
+        encrypt: true,                
+        enableArithAbort: true        
     }
-    console.log('Connected to MySQL');
+};
+
+
+sql.connect(config, (err) => {
+    if (err) {
+        console.error('Error connecting to Azure SQL Database:', err);
+    } else {
+        console.log('Connected to Azure SQL Database');
+    }
 });
 
-module.exports = connection;
+module.exports = sql;

@@ -18,7 +18,7 @@
     <nav class="nav">
       <a href="home.html">Home</a>
       <a href="index.html">Workout</a>
-      <a href="#chart">Chart</a>
+      <a href="chart.html">Chart</a>
     </nav>
   </div>
 
@@ -27,6 +27,7 @@
     <h1>Track Your Workouts</h1>
     <p>Log your exercises and track your progress over time.</p>
     <button id="startWorkoutButton">Enter a Workout</button>
+    <div id="workoutMessage"></div> <!-- Display workout submission status -->
   </div>
 
   <!-- Workout Entry Modal -->
@@ -47,18 +48,6 @@
         <input type="number" id="exerciseWeight" placeholder="Enter Weight (lbs)">
         <button id="submitExercise">Submit Workout</button>
       </div>
-    </div>
-  </div>
-
-  <!-- Chart Section -->
-  <div id="chart" class="home-section">
-    <h1>Your Workout Progress</h1>
-    <canvas id="progressChart"></canvas>
-
-    <!-- Container for listing data points with delete options -->
-    <div id="dataPointsContainer">
-        <h3>Workout Entries</h3>
-        <ul id="dataPointsList"></ul>
     </div>
   </div>
 
