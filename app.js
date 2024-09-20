@@ -33,7 +33,7 @@ async function connectToDb() {
 // Register a new user
 app.post('/api/register', async (req, res) => {
     const { username, password } = req.body;
-
+    console.log(`Registering user: ${username}`);  // Log to verify request
     try {
         const pool = await connectToDb();
 
@@ -63,6 +63,7 @@ app.post('/api/register', async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 });
+
 
 // Login user
 app.post('/api/login', async (req, res) => {
