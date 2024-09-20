@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STracker - Track Your Workouts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header Section -->
+  <div class="header">
+    <div class="logo">STracker</div>
+    <nav class="nav">
+      <a href="home.html">Home</a>
+      <a href="index.html">Workout</a>
+      <a href="#chart">Chart</a>
+    </nav>
+  </div>
+
+  <!-- Workout Section -->
+  <div class="home-section">
+    <h1>Track Your Workouts</h1>
+    <p>Log your exercises and track your progress over time.</p>
+    <button id="startWorkoutButton">Enter a Workout</button>
+  </div>
+
+  <!-- Workout Entry Modal -->
+  <div class="modal" id="workoutModal">
+    <div class="modal-content">
+      <span class="close-button" id="closeModal">&times;</span>
+      <h2>Select a Body Part</h2>
+      <div class="body-parts">
+        <button class="body-part" data-part="Chest">Chest</button>
+        <button class="body-part" data-part="Back">Back</button>
+        <button class="body-part" data-part="Legs">Legs</button>
+        <button class="body-part" data-part="Shoulders">Shoulders</button>
+        <button class="body-part" data-part="Arms">Arms</button>
+      </div>
+      <div id="exerciseSection" class="exercise-section hidden">
+        <h3>Select an Exercise for <span id="selectedBodyPart"></span></h3>
+        <select id="exerciseSelect"></select>
+        <input type="number" id="exerciseWeight" placeholder="Enter Weight (lbs)">
+        <button id="submitExercise">Submit Workout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart Section -->
+  <div id="chart" class="home-section">
+    <h1>Your Workout Progress</h1>
+    <canvas id="progressChart"></canvas>
+
+    <!-- Container for listing data points with delete options -->
+    <div id="dataPointsContainer">
+        <h3>Workout Entries</h3>
+        <ul id="dataPointsList"></ul>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <div class="footer">
+    &copy; 2024 STracker. All rights reserved. | Privacy Policy | Terms of Use
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
