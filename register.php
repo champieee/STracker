@@ -1,35 +1,43 @@
 <?php
-require 'db.php';
+require 'db.php'; // Ensure db.php is included for the database connection
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-  // Check if user already exists
-  $sql = "SELECT * FROM users WHERE username = ?";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("s", $username);
-  $stmt->execute();
-  $result = $stmt->get_result();
+    // Check if username or password are empty
+    if (empty($username) || empty($password)) {
+        echo "Username and password are required!";
+        exit;
+    }
 
-  if ($result->num_rows > 0) {
-    echo json_encode(["error" => "Username already exists"]);
-    exit;
-  }
+    // Check if user already exists
+    $sql = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-  // Hash password and insert user
-  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-  $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("ss", $username, $hashedPassword);
+    if ($result->num_rows > 0) {
+        echo "Username already exists!";
+        exit;
+    }
 
-  if ($stmt->execute()) {
-    echo json_encode(["message" => "User registered successfully"]);
-  } else {
-    echo json_encode(["error" => "Error registering user"]);
-  }
+    // Hash password and insert user
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $hashedPassword);
 
-  $stmt->close();
+    if ($stmt->execute()) {
+        // Redirect to login page
+        header("Location: login.html");
+        exit;
+    } else {
+        echo "Error: Could not register user.";
+    }
+
+    $stmt->close();
 }
 
 $conn->close();
