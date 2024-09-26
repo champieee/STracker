@@ -18,11 +18,11 @@
   <!-- Registration Section -->
   <div class="home-section">
     <h1>Create a New Account</h1>
-    <form id="registerForm">
+    <form id="registerForm" action="register.php" method="POST">  <!-- Updated action to point to register.php -->
       <label for="registerUsername">Username:</label>
-      <input type="text" id="registerUsername" required>
+      <input type="text" id="registerUsername" name="username" required> <!-- Added name attribute for PHP -->
       <label for="registerPassword">Password:</label>
-      <input type="password" id="registerPassword" required>
+      <input type="password" id="registerPassword" name="password" required> <!-- Added name attribute for PHP -->
       <button type="submit">Register</button>
       <div id="registerMessage"></div>
     </form>
@@ -34,6 +34,5 @@
   </div>
 </div>
 
-<script src="register.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>
