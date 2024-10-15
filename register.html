@@ -10,25 +10,22 @@
 <body>
 
 <div class="container">
-  <!-- Header Section -->
   <div class="header">
     <div class="logo">STracker</div>
   </div>
 
-  <!-- Registration Section -->
   <div class="home-section">
     <h1>Create a New Account</h1>
-    <form id="registerForm" action="register.php" method="POST">  <!-- Updated action to point to register.php -->
+    <form id="registerForm" action="register.php" method="POST"> 
       <label for="registerUsername">Username:</label>
-      <input type="text" id="registerUsername" name="username" required> <!-- Added name attribute for PHP -->
+      <input type="text" id="registerUsername" name="username" required> 
       <label for="registerPassword">Password:</label>
-      <input type="password" id="registerPassword" name="password" required> <!-- Added name attribute for PHP -->
+      <input type="password" id="registerPassword" name="password" required> 
       <button type="submit">Register</button>
       <div id="registerMessage"></div>
     </form>
   </div>
 
-  <!-- Footer Section -->
   <div class="footer">
     &copy; 2024 STracker. All rights reserved.
   </div>
